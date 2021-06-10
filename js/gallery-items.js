@@ -45,9 +45,7 @@ const ul = document.querySelector('ul');
 
 const galeryImages = createdImagesCards(images);
 
-
 ul.insertAdjacentHTML('beforeend', galeryImages);
-
 
 function createdImagesCards(img) {
     // console.log(img)
@@ -70,7 +68,6 @@ function createdImagesCards(img) {
           </li>`;
     }).join('');
 
-
 };
 console.log(galeryImages);
 
@@ -78,7 +75,8 @@ const ulContainer = document.querySelector("ul.js-gallery");
 const imgItems = document.querySelectorAll(".gallery__item");
 const modal = document.querySelector('div.lightbox');
 const buttonCloseModal = document.querySelector('button');
-const modalDef = document.querySelector('.lightbox__image');
+const modalImg = document.querySelector('.lightbox__image');
+const overlayContainer = document.querySelector('.lightbox__overlay');
 
 
 ulContainer.addEventListener('click', stopDefActive);
@@ -91,22 +89,22 @@ ulContainer.addEventListener('click', openModal);
 ulContainer.addEventListener('click', addBigImag);
 
 function openModal(evt) {
-    console.log(evt.target.dataset.source);
-
     console.log(evt.target.src);
     if (!evt.target.src) {
         return
     }
-    modal.classList.add('is-open')
+    modal.classList.add('is-open');
+
 };
 
 function addBigImag(e) {
-    const pointTargetImgScr = e.target.dataset.source;
-    modalDef.src = pointTargetImgScr;
+    modalImg.src = e.target.dataset.source;
+    modalImg.alt = e.target.alt;
 }
 
 buttonCloseModal.addEventListener('click', closeModal);
+overlayContainer.addEventListener('click', closeModal);
 
 function closeModal() {
-    modal.classList.remove('is-open')
+    modal.classList.remove('is-open');
 }
