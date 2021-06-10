@@ -48,7 +48,6 @@ const galeryImages = createdImagesCards(images);
 ul.insertAdjacentHTML('beforeend', galeryImages);
 
 function createdImagesCards(img) {
-    // console.log(img)
     return img.map(({ original, preview, description }) => {
 
         return `<li class="gallery__item">
@@ -69,7 +68,6 @@ function createdImagesCards(img) {
     }).join('');
 
 };
-console.log(galeryImages);
 
 const ulContainer = document.querySelector("ul.js-gallery");
 const imgItems = document.querySelectorAll(".gallery__item");
@@ -89,7 +87,6 @@ ulContainer.addEventListener('click', openModal);
 ulContainer.addEventListener('click', addBigImag);
 
 function openModal(evt) {
-    console.log(evt.target.src);
     if (!evt.target.src) {
         return
     }
