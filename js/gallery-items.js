@@ -50,7 +50,7 @@ ul.insertAdjacentHTML('beforeend', galeryImages);
 
 
 function createdImagesCards(img) {
-    console.table(img);
+
     return img.map(({ original, preview, description }) => {
 
         return `<li class="gallery__item">
