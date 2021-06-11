@@ -77,16 +77,17 @@ const modalImg = document.querySelector('.lightbox__image');
 const overlayContainer = document.querySelector('.lightbox__overlay');
 
 
-ulContainer.addEventListener('click', stopDefActive);
+// ulContainer.addEventListener('click', stopDefActive);
 
-function stopDefActive(e) {
-    e.preventDefault();
-}
+// function stopDefActive(e) {
+//     e.preventDefault();
+// }
 
 ulContainer.addEventListener('click', openModal);
 ulContainer.addEventListener('click', addBigImag);
 
 function openModal(evt) {
+    evt.preventDefault();
     if (!evt.target.src) {
         return
     }
@@ -104,4 +105,5 @@ overlayContainer.addEventListener('click', closeModal);
 
 function closeModal() {
     modal.classList.remove('is-open');
+    modalImg.src = " ";
 }
